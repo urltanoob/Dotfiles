@@ -59,4 +59,4 @@ do_step() {
 # === Example Usage ===
 do_step "Updating" "System" yay -Syu --noconfirm
 do_step "Install" "NVIM" yay -S nvim --noconfirm
-do_step "Removing" "NVIM" yay -Rcns nvim --noconfirm
+do_step "Removing" "NVIM" yay -Rcns neovim --noconfirm
