@@ -60,13 +60,12 @@ do_step() {
 do_step "Moving to" "Home Dir" cd /home/urltanoob
 do_step "Cloning" "Repo" git clone https://github.com/urltanoob/Dotfiles.git
 do_step "Updating" "System" pacman -Syu --noconfirm
-do_step "Install" "YAY" yay -S sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si --noconfirm
+do_step "Install" "YAY" sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si --noconfirm
 do_step "Install" "Firefox" yay -S firefox --noconfirm
 do_step "Install" "BTOP" yay -S btop --noconfirm
 do_step "Install" "Kitty" yay -S kitty --noconfirm
 do_step "Install" "Waybar" yay -S waybar --noconfirm
 do_step "Install" "NVIM" yay -S nvim --noconfirm
 do_step "Install" "Nwg-look" yay -S nwg-look --noconfirm
-do_step "Insstall" "Brightnesctl" yay -S brightnessctl
-do_step "Enable" "Multilib" "sudo sed -i '/\\[multilib\\]/,/Include/ s/^#//' /etc/pacman.conf && sudo pacman -Syu"
+do_step "Install" "Brightnesctl" yay -S brightnessctl --noconfirm
 do_step "Install" "Steam" yay -S steam --noconfirm
