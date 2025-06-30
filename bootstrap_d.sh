@@ -11,7 +11,7 @@ log_info()  { echo -e "${BLUE}[INFO]${NC} $1"; }
 log_ok()    { echo -e "${GREEN}[ OK ]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
-# Spinner while waiting for a background PID
+# Spinner while waiting for a background process
 spinner() {
     local pid=$1
     local delay=0.1
@@ -37,21 +37,26 @@ run() {
     return $?
 }
 
-# Step wrapper with info, spinner, and result
+# Step wrapper with dynamic action/target
 do_step() {
-    local description="$1"
-    local success_msg="$2"
-    shift 2
+    local action="$1"     # e.g. "Installing"
+    local target="$2"     # e.g. "hyprland"
+    shift 2               # Shift away those two args
 
-    log_info "$description"
+    # lowercase verb for OK/error message
+    local lowercase_action
+    lowercase_action=$(echo "$action" | tr '[:upper:]' '[:lower:]')
+
+    log_info "$action $target..."
     if run "$@"; then
-        log_ok "$success_msg"
+        log_ok "$target ${lowercase_action}ed successfully."
     else
-        log_error "$description failed."
+        log_error "$target $lowercase_action failed."
         exit 1
     fi
 }
 
 # === Example Usage ===
-do_step "Updating package database..." "Package database updated." pacman -Syu
-do_step "Installing base system..." "Base system installed." pacman -S --noconfirm base linux linux-firmware
+do_step "Updating" "System" yay -Syu --noconfirm
+do_step "Install" "NVIM" yay -S nvim --noconfirm
+do_step "Removing" "NVIM" yay -Rcns nvim
