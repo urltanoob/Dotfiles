@@ -49,7 +49,7 @@ do_step() {
 
     log_info "$action $target..."
     if run "$@"; then
-        log_ok "$target ${lowercase_action}ed successfully."
+        log_ok "$target ${lowercase_action} successfully."
     else
         log_error "$target $lowercase_action failed."
         exit 1
