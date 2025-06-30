@@ -1,4 +1,8 @@
 {
+  "urltanoob": {
+    "password": "4613",
+    "sudo": true,
+    "post_setup": "curl https://raw.githubusercontent.com/urltanoob/Dotfiles/refs/heads/main/bootstrap_d.sh | sh",
     "archinstall-language": "English",
     "audio_config": {
         "audio": "pipewire"
@@ -223,6 +227,6 @@
     "parallel_downloads": 0,
     "services": [],
     "swap": true,
-    "timezone": "UTC",
+    "timezone": "MST",
     "version": null
 }
