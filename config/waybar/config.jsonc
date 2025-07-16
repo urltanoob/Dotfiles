@@ -1,0 +1,87 @@
+// -*- mode: jsonc -*-
+{
+    //Top margin
+    "margin-top": 5,
+    //Bottom margin
+    "margin-bottom": 3,
+    //Right margin
+    "margin-right": 5,
+    //Left margin
+    "margin-left": 5,
+    // Height of the bar	
+    "height": 32,   
+    // Spacing between the modules
+    "spacing": 4,
+    // Choose the order of the modules
+    
+    "modules-left": [
+	"cpu",
+	"memory"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "pulseaudio",
+	"network",
+        "battery",
+        "clock"
+    ],
+    
+    // Configure workspace numbers and icons
+    "hyprland/workspaces": {
+	"format": "{name}"
+
+    },
+
+
+    "pulseaudio": {
+	"format": "VOLUME {icon} {volume}%",
+	"format-icons": [
+	  "[▒▒▒▒▒]",
+           "[▓▒▒▒▒]",
+	  "[▓▓▒▒▒]",
+	  "[▓▓▓▒▒]",
+	  "[▓▓▓▓▒]",
+	  "[▓▓▓▓▓]"
+	]
+    },
+
+    // Configure the network icon
+    "network": {
+	"format": "{ifname} {ipaddr}",
+        "format-wifi": "{essid} {signalStrength}%"
+    },
+
+    
+    // Configure cpu usage module
+    "cpu": {
+        "format": " CPU {icon} {usage}%",
+	"format-icons": [
+	   "[▒▒▒▒▒]",
+	   "[▓▒▒▒▒]",
+	   "[▓▓▒▒▒]",
+	   "[▓▓▓▒▒]",
+	   "[▓▓▓▓▒]",
+	   "[▓▓▓▓▓]"
+	]
+    },
+
+    // Configure memory module
+    "memory": {
+        "format": " RAM {icon} {percentage}%",
+	"format-icons": [
+	  "[▒▒▒▒▒]",
+	  "[▓▒▒▒▒]",
+	  "[▓▓▒▒▒]",
+	  "[▓▓▓▒▒]",
+	  "[▓▓▓▓▒]",
+	  "[▓▓▓▓▓]"
+	]
+    },
+	   
+    // Configure battery icon
+    "battery": {
+	"format": "{capacity}% "
+    }
+}
