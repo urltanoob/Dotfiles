@@ -1,0 +1,12 @@
+### THINGS TO CHANGE ON FULL DEPLOYMENT ###
+
+Add monitor config on puter hyprland conf
+
+SMB secret management. Change to hash or have some way of storing them securly
+
+Add rebuildgit that takes a arg and pushses changes to git after rebuild
+
+Add gitdostuff alias to push changes to git
+
+
+### THINGS TO BE ASKED ###

@@ -1,0 +1,79 @@
+{
+    "main": {
+        "margin-left": 5,
+        "margin-right": 5,
+        "margin-top": 5,
+        "margin-bottom": 5,
+        
+        "reload_style_on_change": true,
+        "modules-left": [
+            "hyprland/workspaces",
+            "mpris"
+        ],
+        "modules-center": [
+            "hyprland/window"
+        ],
+        "modules-right": [
+            "tray",
+            "pulseaudio",
+            "backlight",
+            "network",
+            "cpu",
+            "memory",
+            "battery",
+            "clock"
+        ],
+        "hyprland/workspaces": {
+            "format": "{icon}"
+        },
+        "mpris": {
+            "format": "{status_icon} {title} by {artist}",
+            "format-paused": "<span color='grey'>{status_icon} {title} by {artist}</span>",
+            "max-length": 50,
+            "status-icons": {
+                "playing": "",
+                "paused": ""
+            }
+        },
+        "pulseaudio": {
+            "format": " {volume}%",
+            "format-muted": " {volume}% "
+        },
+        "backlight": {
+            "format": " {percent}%"
+        },
+        "network": {
+            "tooltip": false,
+            "format-wifi": "{icon}",
+            "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+            "format-ethernet": "󰈁",
+            "format-disconnected": "󰈂",
+            "format-linked": "󰈁 {ifname} (No IP)"
+        },
+        "cpu": {
+            "interval": 1,
+            "format": "{icon}",
+            "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+            "tooltip": true
+        },
+        "memory": {
+            "interval": 1,
+            "format": "{icon}",
+            "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+            "tooltip-format": "RAM: {used}GiB / {total}GiB"
+        },
+        "battery": {
+            "format": "{icon} {capacity}%",
+            "format-icons": ["", "", "", "", ""],
+            "states": {
+                "warning": 15,
+                "critical": 5
+            }
+        },
+        "clock": {
+            "format": "{:%H:%M}",
+            "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>"
+        }
+    }
+}

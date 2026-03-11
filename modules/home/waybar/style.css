@@ -1,0 +1,83 @@
+@import url('../../.cache/wal/colors-waybar.css');
+
+* {
+	font-size:15px;
+	font-family: "JetBrainsMonoNerdFont";
+    margin: 2px;
+}
+
+window#waybar {
+    background-color: @background;
+    color: @color1;
+    border-radius: 10px;
+}
+tooltip {
+	padding: 2px;
+	margin:10px 0px 5px 10px;
+
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: @background;
+	
+	background: @color4;
+	color: @background;
+}
+#tray {
+    margin: 0 5px;
+}
+
+#pulseaudio {
+    margin: 0 5px;
+}
+
+#backlight {
+    margin: 0 5px;
+}
+
+#network {
+    margin: 0 5px;
+}
+
+#cpu {
+    margin: 0 5px;
+}
+
+#memory {
+    margin: 0 5px;
+}
+
+#battery {
+    margin: 0 5px;
+}
+
+#clock {
+    margin: 0 5px;
+}
+workspaces {
+    padding: 5px 5px;
+}
+#workspaces button {
+    all:unset;
+    padding: 0px 0px;
+    color: alpha(@color9,.4);
+    transition: all .2s ease;
+}
+#workspaces button.active {
+    color: @color9;
+    border: none;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+}
+#workspaces button.empty {
+    color: rgba(0,0,0,0);
+    border: none;
+    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
+}
+#workspaces button.empty.active {
+    color: @color9;
+    border: none;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+}
+#battery.charging {
+    color: green;
+}

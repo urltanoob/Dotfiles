@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+WALLPAPER_DIR="$HOME/nixos-config/wallpapers/"
+
+menu() {
+	find "${WALLPAPER_DIR}" -type f \( -iname "*.jpg" -o -iname "*jpeg" -o -iname "*.png" -o -iname "*.gif" \) | awk '{print "img:"$0}'
+}
+
+main() {
+	choice=$(menu | wofi --show dmenu --prompt "Select Wallpaper:" -n -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css)
+	selected_wallpaper=$(echo "$choice" | sed 's/^img://')
+	swww img "$selected_wallpaper" --transition-type wipe --transition-fps 60 --transition-duration 1
+	wal -i "$selected_wallpaper"
+}
+
+main
