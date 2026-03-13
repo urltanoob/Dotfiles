@@ -23,7 +23,11 @@
 
   networking.hostName = hostname;
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dns = "systemd-resolved";
+    plugins = [ pkgs.networkmanager-openvpn ];
+  };
   
   hardware.bluetooth.enable = true;
 

@@ -12,6 +12,7 @@
     rclone
     qbittorrent
     wireguard-tools
+    networkmanager-openvpn
     protonvpn-gui
     pavucontrol
     traceroute
