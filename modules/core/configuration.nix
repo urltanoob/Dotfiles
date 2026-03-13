@@ -51,8 +51,8 @@
 
   services.xserver.enable = true;
 
-  #services.displayManager.ly.enable = true;
-  services.displayManager.sddm.enable = true;
+  services.displayManager.ly.enable = true;
+  #services.displayManager.sddm.enable = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

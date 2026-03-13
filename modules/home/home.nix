@@ -10,6 +10,7 @@
     ./nvim
     ./pywal
     ./hyprlock
+    ./git
   ];
 
   

@@ -17,5 +17,8 @@
     traceroute
     gcc
     kdePackages.okular
+    sbctl
+    grim
+    slurp
   ];
 }
