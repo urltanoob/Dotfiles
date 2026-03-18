@@ -45,6 +45,7 @@
     bibata-cursors
     rofi
     hyprlock
+    claude-code
   ];
 
   fonts.fontconfig.enable = true;
