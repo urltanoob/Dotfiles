@@ -8,5 +8,4 @@ Add rebuildgit that takes a arg and pushses changes to git after rebuild
 
 Add gitdostuff alias to push changes to git
 
-
-### THINGS TO BE ASKED ###
+Fix waybar volume issue

@@ -37,7 +37,8 @@
         },
         "pulseaudio": {
             "format": " {volume}%",
-            "format-muted": " {volume}% "
+            "format-muted": " {volume}%",
+            "signal": 8
         },
         "backlight": {
             "format": " {percent}%"
