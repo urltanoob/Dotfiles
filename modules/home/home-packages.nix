@@ -1,0 +1,39 @@
+{ pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    bibata-cursors
+    bluetui
+    btop
+    claude-code
+    cursor-cli
+    fastfetch
+    firefox
+    git
+    grim
+    hyprlock
+    kdePackages.dolphin
+    kdePackages.okular
+    kitty
+    lxappearance
+    nerd-fonts.jetbrains-mono
+    neovim
+    obsidian
+    onlyoffice-desktopeditors
+    pavucontrol
+    playerctl
+    protonvpn-gui
+    pywal
+    python3
+    qbittorrent
+    rofi
+    slurp
+    spotify
+    swww
+    vlc
+    wofi
+    wpgtk
+    yazi
+    zsh
+  ];
+}

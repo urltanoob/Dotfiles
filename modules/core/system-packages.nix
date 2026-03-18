@@ -2,24 +2,19 @@
 
 {
   environment.systemPackages = with pkgs; [
+    brightnessctl
+    gcc
+    glib
     home-manager
     gtk-engine-murrine
     gtk_engines
     gsettings-desktop-schemas
-    lxappearance
-    unzip
-    cursor-cli
-    rclone
-    qbittorrent
-    wireguard-tools
     networkmanager-openvpn
-    protonvpn-gui
-    pavucontrol
-    traceroute
-    gcc
-    kdePackages.okular
+    rclone
     sbctl
-    grim
-    slurp
+    traceroute
+    tree
+    unzip
+    wireguard-tools
   ];
 }
