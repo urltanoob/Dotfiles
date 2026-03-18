@@ -13,9 +13,8 @@
       sv = "sudo nvim";
 
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-      update = "sudo nix flake update; rebuild";
+      update = "cd ~/nixos-config; cp flake.lock flake.lock.bak; sudo nix flake update; rebuild";
       garbage = "sudo nix-collect-garbage -d; rebuild";
-      monitors-reload = "systemctl --user restart kanshi.service";
     };
 
     initContent = ''

@@ -15,7 +15,7 @@
         ],
         "modules-right": [
             "tray",
-            "pulseaudio",
+            "wireplumber",
             "backlight",
             "network",
             "cpu",
@@ -35,7 +35,7 @@
                 "paused": ""
             }
         },
-        "pulseaudio": {
+        "wireplumber": {
             "format": " {volume}%",
             "format-muted": " {volume}%",
             "signal": 8

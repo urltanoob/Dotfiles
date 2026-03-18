@@ -55,8 +55,13 @@
 
   services.xserver.enable = true;
 
-  services.displayManager.ly.enable = true;
-  #services.displayManager.sddm.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "doom";
+      min_refresh_delta = 100;
+    };
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
