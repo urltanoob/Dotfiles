@@ -9,3 +9,11 @@ Add rebuildgit that takes a arg and pushses changes to git after rebuild
 Add gitdostuff alias to push changes to git
 
 Fix waybar volume issue
+
+Wofi or other launcher customisation
+    - Shutdown Menu
+    - Wallpaper Changer
+
+Hyprland animations polish
+
+Term Transparency possably?
