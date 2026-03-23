@@ -35,5 +35,6 @@
     wpgtk
     yazi
     zsh
+    cmatrix
   ];
 }
