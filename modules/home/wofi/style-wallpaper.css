@@ -1,0 +1,11 @@
+@import url('~/.cache/wal/colors-waybar.css');
+
+* {
+    all:unset;
+    font-family: 'Jet Brains Mono';
+    font-size: 18px;
+    outline: none;
+    border: none;
+    text-shadow:none;
+    background-color: alpha(@background, 0.7);
+}

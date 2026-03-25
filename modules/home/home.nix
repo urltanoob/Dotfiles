@@ -12,6 +12,7 @@
     ./pywal
     ./hyprlock
     ./git
+    ./wofi
   ];
 
 
