@@ -59,6 +59,7 @@ maybe_push_ahead() {
   fi
   echo
   echo "Local branch is $ahead commit(s) ahead of GitHub with no push yet."
+  show_changes "$REMOTE_BRANCH..HEAD"
   read -r -p "Push these commits to GitHub? [y/N]: " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "Push skipped."
@@ -66,6 +67,13 @@ maybe_push_ahead() {
   fi
   git push origin HEAD:main
   echo "Push complete."
+}
+
+show_changes() {
+  local range="$1"
+  echo
+  git log "$range" --format="commit %H%nauthor: %an <%ae>%ndate:   %ad%n%n    %s%n" --date=short --name-status \
+    | sed 's/^[A-Z][0-9]*\t/  /'
 }
 
 # Same commit as remote: only unpublished work is unstaged/uncommitted.
@@ -85,6 +93,14 @@ fi
 if ! is_behind && ! is_ahead_only; then
   echo
   echo "Local and $REMOTE_BRANCH have diverged (different histories)."
+  ahead="$(git rev-list --count "$REMOTE_BRANCH"..HEAD)"
+  behind="$(git rev-list --count "HEAD..$REMOTE_BRANCH")"
+  echo "  Local is $ahead commit(s) ahead, $behind commit(s) behind."
+  echo
+  echo "--- Remote commits you don't have ---"
+  show_changes "HEAD..$REMOTE_BRANCH"
+  echo "--- Your local commits not on remote ---"
+  show_changes "$REMOTE_BRANCH..HEAD"
   echo "Resolve with git rebase, merge, or reset before pushing."
   read -rp "Press Enter to close..."
   exit 1
@@ -96,6 +112,7 @@ if is_behind && ! is_ahead_only; then
   echo "A newer version is available from GitHub."
   echo "Current: $LOCAL_HEAD"
   echo "Remote : $REMOTE_HEAD"
+  show_changes "HEAD..$REMOTE_BRANCH"
   echo
   echo "Overwrite your local repository with the remote version?"
   echo "This can discard local commits and uncommitted changes."
