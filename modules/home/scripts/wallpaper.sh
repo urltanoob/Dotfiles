@@ -6,9 +6,9 @@ menu() {
 }
 
 main() {
-	choice=$(menu | wofi --show dmenu --prompt "Select Wallpaper:" -n -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css)
+	choice=$(menu | wofi --show dmenu --prompt "Select Wallpaper:" -n -c ~/nixos-config/modules/home/wofi/wallpaper -s ~/nixos-config/modules/home/wofi/style-wallpaper.css)
 	selected_wallpaper=$(echo "$choice" | sed 's/^img://')
-	swww img "$selected_wallpaper" --transition-type wipe --transition-fps 60 --transition-duration 1
+	swww img "$selected_wallpaper" --transition-type wipe  --transition-duration .5 
 	wal -i "$selected_wallpaper"
 }
 
