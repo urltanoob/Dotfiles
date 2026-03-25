@@ -33,7 +33,11 @@ commit_and_push() {
 
 prompt_commit_push() {
   echo
-  echo "You have uncommitted changes. Commit everything and push to GitHub?"
+  echo "You have uncommitted changes:"
+  git add -A
+  git diff --stat --cached
+  echo
+  echo "Commit everything and push to GitHub?"
   read -r -p "[y/N]: " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "Skipped commit/push."
@@ -72,8 +76,7 @@ maybe_push_ahead() {
 show_changes() {
   local range="$1"
   echo
-  git log "$range" --format="commit %H%nauthor: %an <%ae>%ndate:   %ad%n%n    %s%n" --date=short --name-status \
-    | sed 's/^[A-Z][0-9]*\t/  /'
+  git log "$range" --oneline --stat
 }
 
 # Same commit as remote: only unpublished work is unstaged/uncommitted.
