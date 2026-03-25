@@ -12,8 +12,11 @@ Fix waybar volume issue
 
 Wofi or other launcher customisation
     - Shutdown Menu
-    - Wallpaper Changer
 
 Hyprland animations polish
 
 Term Transparency possably?
+
+Add hyprctl reload to wallpaper
+
+Lock when close lid
