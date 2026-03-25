@@ -10,6 +10,7 @@ main() {
 	selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 	wal -i "$selected_wallpaper" -n
 	swww img "$selected_wallpaper" --transition-type wipe --transition-fps 60 --transition-duration 1
+    hyprctl reload
 }
 
 main

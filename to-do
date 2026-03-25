@@ -1,14 +1,6 @@
 ### THINGS TO CHANGE ON FULL DEPLOYMENT ###
 
-Add monitor config on puter hyprland conf
-
 SMB secret management. Change to hash or have some way of storing them securly
-
-Add rebuildgit that takes a arg and pushses changes to git after rebuild
-
-Add gitdostuff alias to push changes to git
-
-Fix waybar volume issue
 
 Wofi or other launcher customisation
     - Shutdown Menu
@@ -16,7 +8,5 @@ Wofi or other launcher customisation
 Hyprland animations polish
 
 Term Transparency possably?
-
-Add hyprctl reload to wallpaper
 
 Lock when close lid
