@@ -3,5 +3,6 @@
 {
   imports = [
     ./hyprland
+    ../../modules/home/steam
   ];
 }
