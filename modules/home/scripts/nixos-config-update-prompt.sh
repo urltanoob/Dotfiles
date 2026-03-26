@@ -109,7 +109,7 @@ if ! is_behind && ! is_ahead_only; then
   exit 1
 fi
 
-# Strictly behind remote: offer to reset to match GitHub (existing behavior).
+# Strictly behind remote: merge in remote changes, preserving uncommitted work.
 if is_behind && ! is_ahead_only; then
   echo
   echo "A newer version is available from GitHub."
@@ -117,8 +117,10 @@ if is_behind && ! is_ahead_only; then
   echo "Remote : $REMOTE_HEAD"
   show_changes "HEAD..$REMOTE_BRANCH"
   echo
-  echo "Overwrite your local repository with the remote version?"
-  echo "This can discard local commits and uncommitted changes."
+  echo "Merge remote changes into your local branch?"
+  if [[ -n "$DIRTY" ]]; then
+    echo "(Uncommitted changes will be stashed and restored after the merge.)"
+  fi
   read -r -p "[y/N]: " confirm
 
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
@@ -128,43 +130,33 @@ if is_behind && ! is_ahead_only; then
     exit 0
   fi
 
-  timestamp="$(date +%Y%m%d-%H%M%S)"
-  backup_dir="$BACKUP_BASE_DIR/nixos-config-$timestamp"
+  stashed=0
+  if [[ -n "$DIRTY" ]]; then
+    echo
+    echo "Stashing uncommitted changes..."
+    git stash push -u -m "nixos-config-update-prompt auto-stash"
+    stashed=1
+  fi
 
   echo
-  echo "Creating backup at:"
-  echo "  $backup_dir"
-  mkdir -p "$BACKUP_BASE_DIR"
-  cp -a "$REPO_DIR" "$backup_dir"
-  echo "Backup complete."
-
-  echo "Pruning old backups (keeping newest $BACKUP_KEEP_COUNT)..."
-  mapfile -t backup_dirs < <(ls -1dt "$BACKUP_BASE_DIR"/nixos-config-* 2>/dev/null || true)
-  if (( ${#backup_dirs[@]} > BACKUP_KEEP_COUNT )); then
-    for old_backup in "${backup_dirs[@]:BACKUP_KEEP_COUNT}"; do
-      rm -rf "$old_backup"
-    done
-  fi
-  echo "Backup pruning complete."
-
-  if [[ -n "$(git status --porcelain)" ]]; then
+  echo "Merging $REMOTE_BRANCH..."
+  if ! git merge --ff-only "$REMOTE_BRANCH"; then
     echo
-    echo "Uncommitted changes detected."
-    echo "This will run:"
-    echo "  git reset --hard $REMOTE_BRANCH"
-    echo "  git clean -fd"
-    read -r -p "Continue and overwrite everything? [y/N]: " confirm_dirty
+    echo "Fast-forward not possible. Falling back to regular merge..."
+    git merge "$REMOTE_BRANCH"
+  fi
 
-    if [[ ! "$confirm_dirty" =~ ^[Yy]$ ]]; then
+  if [[ "$stashed" -eq 1 ]]; then
+    echo
+    echo "Restoring stashed changes..."
+    if ! git stash pop; then
       echo
-      echo "Update canceled."
-      read -rp "Press Enter to close..."
-      exit 0
+      echo "WARNING: stash pop had conflicts. Your stashed changes are still in 'git stash list'."
+      echo "Resolve conflicts manually, then run: git stash drop"
+    else
+      echo "Uncommitted changes restored."
     fi
   fi
-
-  git reset --hard "$REMOTE_BRANCH"
-  git clean -fd
 
   echo
   echo "Local nixos-config has been updated to $REMOTE_BRANCH."
