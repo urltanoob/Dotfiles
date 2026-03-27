@@ -36,5 +36,6 @@
     yazi
     zsh
     cmatrix
+    prismlauncher
   ];
 }
