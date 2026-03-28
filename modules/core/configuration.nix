@@ -18,7 +18,7 @@
     checkReversePath = false;
     enable = true;
     allowedUDPPorts = [ 51820 1194 ];
-    allowedTCPPorts = [ 443 ];
+    allowedTCPPorts = [ 443 11434 ];
   };
 
   networking.hostName = hostname;

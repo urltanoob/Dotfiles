@@ -37,5 +37,7 @@
     zsh
     cmatrix
     prismlauncher
+    unrar
+    wine64
   ];
 }
