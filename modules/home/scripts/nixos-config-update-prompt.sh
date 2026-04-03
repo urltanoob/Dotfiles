@@ -38,7 +38,7 @@ prompt_commit_push() {
   git diff --stat --cached
   echo
   echo "Commit everything and push to GitHub?"
-  read -r -p "[y/N]: " confirm
+  read -r -p "[y/n]: " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "Skipped commit/push."
     return 0
