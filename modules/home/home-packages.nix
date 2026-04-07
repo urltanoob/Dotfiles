@@ -39,5 +39,6 @@
     prismlauncher
     unrar
     wine64
+    qalculate-gtk
   ];
 }
