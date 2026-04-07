@@ -40,5 +40,6 @@
     unrar
     wine64
     qalculate-gtk
+    p7zip
   ];
 }
