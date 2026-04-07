@@ -9,12 +9,6 @@ Hyprland animations polish
 
 Term Transparency possably?
 
-Lock when close lid
-
-Setup file browser docker container
-
-Setup ssh webui doccker container
-
 AI pt2
 
 Fast fetch
@@ -24,3 +18,5 @@ Add alvr
 Volume slider popup
 
 Nvim cosutimisation
+
+Add login popup on servers?
