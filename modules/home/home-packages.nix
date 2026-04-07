@@ -12,7 +12,6 @@
     git
     grim
     hyprlock
-    kdePackages.dolphin
     kdePackages.okular
     kitty
     lxappearance
@@ -41,5 +40,6 @@
     wine64
     qalculate-gtk
     p7zip
+    thunar
   ];
 }
