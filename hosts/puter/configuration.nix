@@ -5,6 +5,15 @@
     ./hardware-configuration.nix
   ];
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  environment.sessionVariables = {
+    RADV_PERFTEST = "gpl";
+  };
+
   fileSystems."/mnt/Gamering" = {
     device = "/dev/disk/by-uuid/36AA56A2AA565E85";
     fsType = "ntfs-3g";

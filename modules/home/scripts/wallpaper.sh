@@ -9,7 +9,7 @@ main() {
 	choice=$(menu | wofi --show dmenu --prompt "Select Wallpaper:" -n -c ~/nixos-config/modules/home/wofi/wallpaper -s ~/nixos-config/modules/home/wofi/style.css)
 	selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 	wal -i "$selected_wallpaper" -n
-	swww img "$selected_wallpaper" --transition-type wipe --transition-fps 60 --transition-duration 1
+	awww img "$selected_wallpaper" --transition-type wipe --transition-fps 60 --transition-duration 1
     hyprctl reload
 }
 

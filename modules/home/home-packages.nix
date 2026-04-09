@@ -28,7 +28,7 @@
     rofi
     slurp
     spotify
-    swww
+    awww
     vlc
     wofi
     wpgtk

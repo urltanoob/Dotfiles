@@ -10,6 +10,7 @@
     gtk_engines
     gsettings-desktop-schemas
     networkmanager-openvpn
+    radeontop
     rclone
     sbctl
     traceroute
