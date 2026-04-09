@@ -7,57 +7,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
     username = "urltanoob";
+    mkHost = hostname: nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit hostname; };
+      modules = [
+        ./modules/core/configuration.nix
+        ./hosts/${hostname}/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${username} = import ./modules/home/home.nix;
+            extraSpecialArgs = { inherit hostname; };
+          };
+        }
+      ];
+    };
   in
   {
     nixosConfigurations = {
-      puter = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./modules/core/configuration.nix
-          ./hosts/puter/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${username} = import ./modules/home/home.nix;
-              extraSpecialArgs = { 
-                hostname = "puter";
-              };
-            };
-          }
-        ];
-        specialArgs = { 
-          hostname = "puter";
-        };
-      };
-      
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./modules/core/configuration.nix
-          ./hosts/laptop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${username} = import ./modules/home/home.nix;
-              extraSpecialArgs = { 
-                hostname = "laptop";
-              };
-            };
-          }
-        ];
-        specialArgs = { 
-          hostname = "laptop";
-        };
-      };
+      puter  = mkHost "puter";
+      laptop = mkHost "laptop";
     };
   };
 }

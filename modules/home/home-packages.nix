@@ -21,7 +21,7 @@
     onlyoffice-desktopeditors
     pavucontrol
     playerctl
-    protonvpn-gui
+    proton-vpn
     pywal
     python3
     qbittorrent
