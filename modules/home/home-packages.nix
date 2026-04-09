@@ -41,5 +41,7 @@
     qalculate-gtk
     p7zip
     thunar
+    wlogout
+    davinci-resolve
   ];
 }

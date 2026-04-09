@@ -1,0 +1,29 @@
+@import url('/home/urltanoob/.cache/wal/colors-waybar.css');
+
+* {
+    font-family: "JetBrainsMonoNerdFont";
+    font-size: 15px;
+}
+
+window {
+    background-color: @background;
+}
+
+button {
+    background-color: @background;
+    color: @background;
+    border-radius: 10px;
+    border: 2px solid @foreground;
+    margin: 10px;
+    transition: all .2s ease;
+}
+
+button:hover {
+    background-color: @color4;
+    border-color: @color4;
+}
+
+button:focus {
+    background-color: @color4;
+    border-color: @color4;
+}
