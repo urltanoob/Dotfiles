@@ -42,6 +42,5 @@
     p7zip
     thunar
     wlogout
-    davinci-resolve
   ];
 }
