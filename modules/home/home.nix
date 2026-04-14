@@ -13,6 +13,8 @@
     ./hyprlock
     ./git
     ./wlogout
+    ./cargo
+    ./starship
   ];
 
 

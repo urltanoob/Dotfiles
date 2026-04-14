@@ -1,25 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-  programs.zsh = {
-    enable = true;
-
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      v = "nvim";
-      sv = "sudo nvim";
-
-      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-      update = "cd ~/nixos-config; cp flake.lock flake.lock.bak; sudo nix flake update; rebuild";
-      garbage = "sudo nix-collect-garbage -d; rebuild";
-    };
-
-    initContent = ''
-      (cat ~/.cache/wal/sequences &)
-      source ~/.cache/wal/colors-tty.sh
-    '';
-  };
+  home.file.".zshrc".text = ''
+    source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  '' + builtins.readFile ./zshrc;
 }

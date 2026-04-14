@@ -34,6 +34,8 @@
     wpgtk
     yazi
     zsh
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     cmatrix
     prismlauncher
     unrar
@@ -42,5 +44,7 @@
     p7zip
     thunar
     wlogout
+    rustup
+    starship
   ];
 }

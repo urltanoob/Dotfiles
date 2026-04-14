@@ -1,0 +1,11 @@
+autoload -Uz compinit && compinit
+
+alias v="nvim"
+alias sv="sudo nvim"
+alias rebuild="sudo nixos-rebuild switch --flake ~/nixos-config"
+alias update="cd ~/nixos-config; cp flake.lock flake.lock.bak; sudo nix flake update; rebuild"
+alias garbage="sudo nix-collect-garbage -d; rebuild"
+
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+eval "$(starship init zsh)"

@@ -1,0 +1,9 @@
+[user]
+    name = Jamison
+    email = jBiberdorf937@gmail.com
+[init]
+    defaultBranch = main
+[pull]
+    rebase = true
+[core]
+    editor = nvim
