@@ -39,14 +39,17 @@
     cmatrix
     prismlauncher
     unrar
-    wine64
     qalculate-gtk
     p7zip
     thunar
     wlogout
     rustup
     starship
+<<<<<<< Updated upstream
     ckan
     yt-dlp
+=======
+    wine
+>>>>>>> Stashed changes
   ];
 }
