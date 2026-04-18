@@ -46,5 +46,7 @@
     wlogout
     rustup
     starship
+    ckan
+    yt-dlp
   ];
 }

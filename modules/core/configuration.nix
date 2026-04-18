@@ -49,7 +49,19 @@
     xwayland.enable = true;
   };
 
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    remotes = [{
+      name = "flathub";
+      location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+    }];
+    packages = [
+      { appId = "org.vinegarhq.Sober"; origin = "flathub"; }
+    ];
+    overrides = {
+      "org.vinegarhq.Sober".Context.devices = "input";
+    };
+  };
 
   services.resolved.enable = true;
 

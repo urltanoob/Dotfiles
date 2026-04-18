@@ -6,8 +6,9 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, ... }:
   let
     system = "x86_64-linux";
     username = "urltanoob";
@@ -17,6 +18,7 @@
       modules = [
         ./modules/core/configuration.nix
         ./hosts/${hostname}/configuration.nix
+        nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager = {
