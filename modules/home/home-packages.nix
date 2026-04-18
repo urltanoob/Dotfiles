@@ -45,11 +45,8 @@
     wlogout
     rustup
     starship
-<<<<<<< Updated upstream
     ckan
     yt-dlp
-=======
     wine
->>>>>>> Stashed changes
   ];
 }
